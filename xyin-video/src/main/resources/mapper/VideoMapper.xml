@@ -3,40 +3,53 @@
 <mapper namespace="com.fuge.xyin.dao.VideoDao">
 	<resultMap id="BaseResultMap" type="com.fuge.xyin.domain.VideoMb">
 		<result column="id" property="id" />
-		<result column="province_id" property="provinceId" />
-		<result column="city_name" property="cityName" />
-		<result column="description" property="description" />
+		<result column="videotitle" property="videotitle" />
+		<result column="videoname" property="videoname" />
+		<result column="videocontent" property="videocontent" />
+		<result column="videourl" property="videourl" />
+		<result column="userid" property="userid" />
+		<result column="updatetime" property="updatetime" />
+		<result column="browernum" property="browernum" />
+		<result column="province" property="province" />
+		<result column="city" property="city" />
+		<result column="universityid" property="universityid" />
+		<result column="videopic" property="videopic" />
+		<result column="praisenum" property="praisenum" />
+		<result column="favoritenum" property="favoritenum" />
+		<result column="score" property="score" />
+		<result column="videoclass" property="videoclass" />
+		<result column="videoduration" property="videoduration" />
 	</resultMap>
 
-	<parameterMap id="City" type="org.spring.springboot.domain.City"/>
+	<parameterMap id="VideoMb" type="com.fuge.xyin.domain.VideoMb"/>
 
 	<sql id="Base_Column_List">
-		id, province_id, city_name, description
+		id,videotitle,videoname,videocontent,videourl,userid,updatetime,browernum,province,city,universityid,videopic,praisenum,favoritenum,score,videoclass,videoduration
 	</sql>
 
 	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
 		select
 		<include refid="Base_Column_List" />
-		from city
+		from video
 		where id = #{id}
 	</select>
 
-	<select id="findAllCity" resultMap="BaseResultMap" >
+	<select id="findAllVideo" resultMap="BaseResultMap" >
 		select
 		<include refid="Base_Column_List" />
-		from city
+		from video
 	</select>
 
-	<insert id="saveCity" parameterMap="City" useGeneratedKeys="true" keyProperty="id">
+	<insert id="saveVideo" parameterMap="VideoMb" useGeneratedKeys="true" keyProperty="id">
 		insert into
-		city(id,province_id,city_name,description)
+		video(id,videotitle,videoname,videocontent,videourl,userid,updatetime,browernum,province,city,universityid,videopic,praisenum,favoritenum,score,videoclass,videoduration)
 		values
-		(#{id},#{provinceId},#{cityName},#{description})
+		(#{id},#{videotitle},#{videoname},#{videocontent},#{videourl},#{userid},#{updatetime},#{browernum},#{province},#{city},#{universityid},#{videopic},#{praisenum},#{favoritenum},#{score},#{videoclass},#{videoduration})
 	</insert>
 
-	<update id="updateCity" parameterMap="City">
+	<update id="updateVideo" parameterMap="VideoMb">
 		update
-		city
+		video
 		set
 		<if test="provinceId!=null">
 			province_id = #{provinceId},
@@ -51,9 +64,9 @@
 		id = #{id}
 	</update>
 
-	<delete id="deleteCity" parameterType="java.lang.Long">
+	<delete id="delete" parameterType="java.lang.Long">
 		delete from
-		city
+		video
 		where
 		id = #{id}
 	</delete>

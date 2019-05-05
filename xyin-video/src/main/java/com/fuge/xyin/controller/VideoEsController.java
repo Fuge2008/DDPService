@@ -35,6 +35,7 @@ public class VideoEsController {
      * @return
      */
     @RequestMapping(value = "/search",method = RequestMethod.GET)
+    @ResponseBody
     public List<VideoEs> searchVideo(@RequestParam(value = "pageNumber") Integer pageNumber,
                                    @RequestParam(value = "pageSize",required = false) Integer pageSize,
                                    @RequestParam(value = "searchContent") String searchContent) {

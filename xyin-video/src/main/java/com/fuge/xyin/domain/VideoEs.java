@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * 视频实体类，用于 ES 操作
  */
-@Document(indexName = "videotitle",type = "videocontent")
+@Document(indexName = "xyin",type = "video")
 public class VideoEs implements Serializable {
     private static final long serialVersionUID = -1L;
 

@@ -26,7 +26,7 @@ public class VideoMrServiceImpl implements VideoMrService {
      */
     public VideoMb findVideoById(Long id) {
         //从缓存中获取视频信息
-        String key = "city_"+id;
+        String key = "video_"+id;
         ValueOperations<String,VideoMb> operations = redisTemplate.opsForValue();
 
         //缓存存在

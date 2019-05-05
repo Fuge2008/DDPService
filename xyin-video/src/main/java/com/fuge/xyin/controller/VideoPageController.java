@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/videopage")
@@ -28,6 +29,7 @@ public class VideoPageController {
      * @return
      */
     @RequestMapping(value = "/pages",method = RequestMethod.GET)
+    @ResponseBody
     public Page<Video> getVideorPage(Pageable pageable){
         return videoPageServie.findByPage(pageable);
     }
@@ -40,6 +42,7 @@ public class VideoPageController {
      * @return
      */
     @RequestMapping(value = "/create",method = RequestMethod.POST)
+    @ResponseBody
     public Video postVideo(@RequestBody Video video){
         return videoPageServie.insertByVideo(video);
     }
